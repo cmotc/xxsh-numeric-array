@@ -1,0 +1,17 @@
+#! /bin/sh
+
+retrieve_array_member(){
+	ARRAY="$1"
+	INDEX=$2
+	RVALUE=""
+	[[ -z $ARRAY ]] && exit 1
+	[[ -z $INDEX ]] && exit 1
+	for item in $ARRAY; do
+		RVALUE="$item"
+		INDEX=$(($INDEX-1))
+		[[ $INDEX > 0 ]] && break
+	done
+	echo "$RVALUE"
+}
+
+retrieve_array_member $1 $2
